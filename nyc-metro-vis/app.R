@@ -4,10 +4,11 @@ library(shiny)
 library(lubridate)
 library(promises)
 library(future)
+library(cachem)
 
 plan("multicore")
 
-shinyOptions(cache = diskCache("./clock-cache"))
+shinyOptions(cache = cachem::cache_disk("./clock-cache"))
 
 ui <- fluidPage(
   
@@ -16,7 +17,7 @@ ui <- fluidPage(
     uiOutput(outputId = "slider"),
     h4(textOutput("time")),
     plotOutput("clock",width = 250,height = 250),
-    actionButton("refresh",label = "Refresh Data",icon = icon("fa-refresh") )),
+    actionButton("refresh",label = "Refresh Data",icon = icon("arrows-rotate") )),
   mainPanel(
     leafletOutput("mymap1",width = "100%",height = "800") )
 )
