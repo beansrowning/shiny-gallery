@@ -6,7 +6,7 @@ library(promises)
 library(future)
 library(cachem)
 
-plan("multicore")
+plan("multisession")
 
 shinyOptions(cache = cachem::cache_disk("./clock-cache"))
 
