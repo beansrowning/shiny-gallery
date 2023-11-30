@@ -5,7 +5,7 @@ library(lubridate)
 library(promises)
 library(future)
 
-plan(multiprocess)
+plan("multicore")
 
 shinyOptions(cache = diskCache("./clock-cache"))
 
